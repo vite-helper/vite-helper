@@ -7,7 +7,9 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "format": "prettier --write .",
-    "lint": "eslint --ext js,ts --fix"
+    "lint": "eslint --ext js,ts --fix",
+    "build": "tsc --declaration",
+    "dev": "ts-node-dev src/index.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
@@ -26,6 +28,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "prettier": "^2.6.2",
+    "ts-node-dev": "^1.1.8",
     "typescript": "^4.7.2"
   },
   "lint-staged": {
