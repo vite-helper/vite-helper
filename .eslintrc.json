@@ -19,17 +19,24 @@
   "rules": {
     "import/prefer-default-export": "off",
     "no-console": "off",
-    "@typescript-eslint/no-unused-vars": "off",
-    "no-useless-constructor": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
-    "class-methods-use-this": "off",
-    "camelcase": "off",
     "no-unused-vars": [
       "error",
       {
         "argsIgnorePattern": "^_",
         "varsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"],
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
       }
     ],
     "import-helpers/order-imports": [

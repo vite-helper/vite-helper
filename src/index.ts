@@ -1,49 +1,27 @@
-import inquirer from "inquirer";
+import { execScript } from "./utils/execScript";
+import { isReactViteProject, isTypescript, pkgManager } from "./utils/identify";
+import { makeQuestions } from "./utils/makeQuestions";
 
 const main = async () => {
-  const isScratchAsk = await inquirer.prompt({
-    type: "confirm",
-    name: "action",
-    message: "Do you want to create a project from scratch?",
-  });
+  const { isScratch, tools } = await makeQuestions();
 
-  const fullProject = async () => {
-    const response = await inquirer.prompt([
-      {
-        type: "input",
-        name: "projectName",
-        message: "What is the name of your project?",
-        default: "my-project",
-      },
-      {
-        type: "confirm",
-        name: "typescript",
-        message: "Do you want to use typescript?",
-        default: false,
-      },
-      {
-        type: "list",
-        name: "packageManager",
-        message: "Which package manager do you want to use?",
-        choices: ["npm", "yarn"],
-      },
-    ]);
+  if (!isScratch) {
+    if (!isReactViteProject())
+      console.log(
+        "Error identifying that you are in a react project with vite, please check your directory",
+      );
 
-    return response;
-  };
+    const packageManager = pkgManager();
+    const isTypescriptProject = isTypescript();
 
-  isScratchAsk.action && (await fullProject());
+    tools.forEach(tool => {
+      execScript(tool, packageManager, isTypescriptProject);
+    });
 
-  const tools = await inquirer.prompt({
-    type: "checkbox",
-    name: "tools",
-    message: "Which tools do you want to use?",
-    choices: ["ESlint, Prettier and Editorconfig", "Jest"],
-  });
+    return;
+  }
 
-  console.log(isScratchAsk, "isScratchAsk");
-  console.log(fullProject, "fullProject");
-  console.log(tools, "tools");
+  console.log("Logic if it's a project from scratch");
 };
 
 main();
