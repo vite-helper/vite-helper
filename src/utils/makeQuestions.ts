@@ -45,7 +45,7 @@ export const makeQuestions = async (): Promise<IQuestionsData> => {
     type: "checkbox",
     name: "tools",
     message: "Which tools do you want to use?",
-    choices: ["ESlint, Prettier and Editorconfig", "Jest"],
+    choices: ["ESlint, Prettier and Editorconfig", "Vite Svgr"],
   });
 
   return { isScratch, tools, projectDetails };
