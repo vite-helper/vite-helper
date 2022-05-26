@@ -1,19 +1,17 @@
-import { IPkgManagers } from "../interfaces/PkgManager";
+import { IDependencies } from "../interfaces/Dependencies";
 import { eslintPrettierEditorConfig, svgr } from "../scripts";
 
-export const execScript = (
-  toolName: string,
-  packageManager: IPkgManagers,
-  isTypescriptProject: boolean,
-) => {
+export const execScript = (toolName: string, isTypescriptProject: boolean) => {
+  let dependencies = {} as IDependencies;
   switch (toolName) {
     case "ESlint, Prettier and Editorconfig":
-      eslintPrettierEditorConfig(packageManager, isTypescriptProject);
+      dependencies = eslintPrettierEditorConfig(isTypescriptProject);
       break;
-    case "Vite Svgr":
-      svgr(packageManager, isTypescriptProject);
+    case "Vite svgr":
+      dependencies = svgr(isTypescriptProject);
       break;
     default:
       console.log("This tool was not found");
   }
+  return dependencies;
 };

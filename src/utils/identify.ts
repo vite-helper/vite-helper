@@ -1,10 +1,5 @@
 import * as fs from "fs";
 
-export const pkgManager = () => {
-  const isYarn = fs.existsSync(`${process.cwd()}/yarn.lock`);
-  return isYarn ? "yarn" : "npm";
-};
-
 export const isTypescript = () => {
   return fs.existsSync(`${process.cwd()}/tsconfig.json`);
 };

@@ -1,11 +1,6 @@
-import { IPkgManagers } from "../interfaces/PkgManager";
-import { addDependencies } from "../utils/addDependencies";
 import { downloadFile } from "../utils/downloadFile";
 
-export const eslintPrettierEditorConfig = (
-  pkgManager: IPkgManagers,
-  isTypescriptProject: boolean,
-) => {
+export const eslintPrettierEditorConfig = (isTypescriptProject: boolean) => {
   const defaultDependencies = [
     "prettier",
     "eslint",
@@ -22,9 +17,6 @@ export const eslintPrettierEditorConfig = (
   const typescriptDependencies = isTypescriptProject
     ? ["@typescript-eslint/eslint-plugin", "@typescript-eslint/parser"]
     : [];
-  const dependencies = [...defaultDependencies, ...typescriptDependencies];
-
-  addDependencies(dependencies, pkgManager, true);
 
   const folder = isTypescriptProject ? "ts" : "js";
 
@@ -34,4 +26,9 @@ export const eslintPrettierEditorConfig = (
 
   downloadFile(`eslint/.eslintignore`, "");
   downloadFile(`eslint/${folder}/.eslintrc.json`, "");
+
+  return {
+    devDependencies: [...defaultDependencies, ...typescriptDependencies],
+    dependencies: [],
+  };
 };

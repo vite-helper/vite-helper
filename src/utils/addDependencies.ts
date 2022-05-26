@@ -1,26 +1,19 @@
 import shell from "shelljs";
 
-import { IPkgManagers } from "../interfaces/PkgManager";
+import { IDependencies } from "../interfaces/Dependencies";
 
-export const addDependencies = (
-  depArray: string[],
-  pkgManager: IPkgManagers,
-  isDev = false,
-) => {
-  let pkgCommand = "";
-  switch (pkgManager) {
-    case "yarn":
-      pkgCommand = isDev ? "yarn add -D" : "yarn add";
-      break;
-    default:
-      pkgCommand = isDev ? "npm add -D" : "npm add";
+export const addDependencies = async ({
+  dependencies,
+  devDependencies,
+}: IDependencies) => {
+  console.log("");
+
+  if (dependencies.length) {
+    shell.exec(`npx add-dependencies ${dependencies.join(" ")}`);
+    console.log("");
   }
 
-  const dependencies = depArray.join(" ");
-  const command = `${pkgCommand} ${dependencies}`;
-
-  if (shell.exec(command).code !== 0) {
-    shell.echo(`Error adding dependencies ${dependencies} with ${pkgManager}`);
-    shell.exit(1);
+  if (devDependencies.length) {
+    shell.exec(`npx add-dependencies ${devDependencies.join(" ")} -D`);
   }
 };

@@ -1,17 +1,8 @@
 import * as fs from "fs";
 
-import { IPkgManagers } from "../interfaces/PkgManager";
-import { addDependencies } from "../utils/addDependencies";
-
-export const svgr = (
-  pkgManager: IPkgManagers,
-  isTypescriptProject: boolean,
-) => {
+export const svgr = (isTypescriptProject: boolean) => {
   const basePath = process.cwd();
-  const dependencies = ["vite-plugin-svgr"];
   let viteConfigPath = `${basePath}/vite.config.js`;
-
-  addDependencies(dependencies, pkgManager, true);
 
   if (isTypescriptProject) {
     fs.appendFileSync(
@@ -40,4 +31,9 @@ export const svgr = (
       }
     });
   });
+
+  return {
+    devDependencies: ["vite-plugin-svgr"],
+    dependencies: [],
+  };
 };
