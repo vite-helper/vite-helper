@@ -33,5 +33,5 @@ export const eslintPrettierEditorConfig = (
   downloadFile("prettier/.prettierignore", "");
 
   downloadFile(`eslint/.eslintignore`, "");
-  downloadFile(`eslint/${folder}/.prettierrc`, "");
+  downloadFile(`eslint/${folder}/.eslintrc.json`, "");
 };
