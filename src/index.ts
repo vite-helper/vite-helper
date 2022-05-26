@@ -1,4 +1,6 @@
+import { createVite } from "./scripts/createVite";
 import { addDependencies } from "./utils/addDependencies";
+import { createCommit } from "./utils/createCommit";
 import { execScript } from "./utils/execScript";
 import { isReactViteProject, isTypescript } from "./utils/identify";
 import { makeQuestions } from "./utils/makeQuestions";
@@ -15,6 +17,12 @@ const main = async () => {
       );
 
     isTypescriptProject = isTypescript();
+  } else {
+    projectDetails &&
+      createVite({
+        isTypescript: projectDetails.isTypescript,
+        packageName: projectDetails.projectName,
+      });
   }
 
   let dependenciesArr: string[] = [];
@@ -34,6 +42,8 @@ const main = async () => {
     dependencies: dependenciesArr,
     devDependencies: devDependenciesArr,
   });
+
+  createCommit();
 };
 
 main();
