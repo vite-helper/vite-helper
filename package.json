@@ -1,7 +1,7 @@
 {
   "name": "vite-helper",
   "version": "1.0.0",
-  "bin": "dist/index.js",
+  "bin": "dist/script.js",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",

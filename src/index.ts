@@ -1,3 +1,5 @@
+import shell from "shelljs";
+
 import { createVite } from "./scripts/createVite";
 import { addDependencies } from "./utils/addDependencies";
 import { createCommit } from "./utils/createCommit";
@@ -43,7 +45,11 @@ const main = async () => {
     devDependencies: devDependenciesArr,
   });
 
-  createCommit();
+  setTimeout(() => {
+    shell.exec("git init");
+    shell.exec("git add .");
+    createCommit("Initial commit from vite-helper");
+  }, 500);
 };
 
 main();
