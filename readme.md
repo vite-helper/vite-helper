@@ -5,12 +5,15 @@
 <h2 align="center">Vite helper helps you configure tools for react projects with vite</h2>
 
 <h4 align="center">
+ <a href="#-how-use?">✨ How use</a> •
  <a href="#-tools">🛠️ Tools</a>
 </h4>
 
 <br>
 
 <img align="center" src="./.github/assets/demo.gif" alt="Vite helper Demo" height="500px"/>
+
+# ✨ How use ?
 
 Run:
 
@@ -24,30 +27,21 @@ Answer the questions (When choosing the tool, use the arrows to navigate, the sp
 
 ## 🧑‍💻 To Improve Developer experience
 
-<br/>
-
 - ESlint, Prettier and Editorconfig
 - Vite svgr
-
-<br/>
+- Lint stage (with husky) | Under development
+- Commitizen and commitlint (with husky) | Under development
+- Basic CI with github actions | Under development
 
 ## 🎨 Style Libraries
 
-<br/>
-
-- Tailwind (Under development)
-- Styled Components (Under development)
-
-<br/>
+- Tailwind | Under development
+- Styled Components | Under development
 
 ## ✨ Others
 
-- Storybook (Under development)
-
-<br/>
+- Storybook | Under development
 
 ## 🧪 Tests
 
-<br/>
-
-- Jest (Under development)
+- Jest | Under development
