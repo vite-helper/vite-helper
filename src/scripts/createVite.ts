@@ -10,41 +10,27 @@ export const createVite = async ({
   isTypescript,
   packageName,
 }: CreateViteProp) => {
-  if (isTypescript) {
-    shell.exec("git clone https://github.com/vite-helper/vite-with-react-ts");
+  const extension = isTypescript ? "ts" : "js";
 
-    fs.renameSync("vite-with-react-ts", packageName);
+  shell.exec(
+    `git clone https://github.com/vite-helper/vite-with-react-${extension} ${packageName}`,
+  );
 
-    shell.cd(packageName);
+  shell.cd(packageName);
 
-    fs.readFile("./package.json", "utf8", (err, data) => {
-      if (err) {
-        console.log(err);
-      }
+  fs.readFile("./package.json", "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+    }
 
-      const result = data.replace(/vite-with-react-ts/g, packageName);
+    const result = data.replace(`vite-with-react-${extension}`, packageName);
 
-      fs.writeFile("./package.json", result, "utf8", err => {
-        if (err) throw err;
-      });
+    fs.writeFile("./package.json", result, "utf8", err => {
+      if (err) throw err;
     });
-  } else {
-    shell.exec("git clone https://github.com/vite-helper/vite-with-react-js");
+  });
 
-    fs.renameSync("vite-with-react-js", packageName);
+  fs.rmSync(".github", { recursive: true });
 
-    shell.cd(packageName);
-
-    fs.readFile("./package.json", "utf8", (err, data) => {
-      if (err) {
-        console.log(err);
-      }
-
-      const result = data.replace(/vite-with-react-ts/g, packageName);
-
-      fs.writeFile("./package.json", result, "utf8", err => {
-        if (err) throw err;
-      });
-    });
-  }
+  fs.rmSync(".git", { recursive: true });
 };
