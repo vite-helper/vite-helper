@@ -1,6 +1,6 @@
 import shell from "shelljs";
+import { silentExec } from "./shell";
 
 export const createCommit = async (commitName: string) => {
-  shell.exec(`git commit -m "${commitName}"`);
-  console.log("Commit feito");
+  silentExec(`git commit -m "${commitName}"`);
 };
