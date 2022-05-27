@@ -30,24 +30,24 @@ Answer the questions (When choosing the tool, use the arrows keys to navigate, t
 
 ## 🧑‍💻 To Improve Developer experience
 
-- ESlint, Prettier and Editorconfig
-- Vite svgr
-- Lint Staged (with husky) | Under development
-- Commitizen and Commitlint (with husky) | Under development
-- Basic CI (with github actions) | Under development
+- [Eslint](https://eslint.org/docs/user-guide/configuring/), [Prettier](https://prettier.io) and [Editorconfig](https://editorconfig.org)
+- [Vire svgr](https://github.com/pd4d10/vite-plugin-svgr)
+- [Lint Staged](https://github.com/okonet/lint-staged) (with [husky](https://typicode.github.io/husky/#/)) | **Under development**
+- [Commitizen](https://github.com/commitizen/cz-cli) and [Commitlint](https://commitlint.js.org/#/) (with [husky](https://typicode.github.io/husky/#/)) | **Under development**
+- Basic CI (with [github actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)) | **Under development**
 
 ## 🎨 Style Libraries
 
-- Tailwind | Under development
-- Styled Components | Under development
+- [Tailwind](https://tailwindcss.com/docs/installation) | **Under development**
+- [Styled Components](https://styled-components.com) | **Under development**
 
 ## ✨ Others
 
-- Storybook | Under development
+- [Storybook](https://storybook.js.org/docs/react/get-started/introduction) | **Under development**
 
 ## 🧪 Tests
 
-- Jest | Under development
+- [Jest](https://jestjs.io/docs/getting-started) with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) | **Under development**
 
 # 📝 Contributing
 
