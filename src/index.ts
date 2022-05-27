@@ -1,11 +1,10 @@
-import shell from "shelljs";
-
 import { createVite } from "./scripts/createVite";
 import { addDependencies } from "./utils/addDependencies";
 import { createCommit } from "./utils/createCommit";
 import { execScript } from "./utils/execScript";
 import { isReactViteProject, isTypescript } from "./utils/identify";
 import { makeQuestions } from "./utils/makeQuestions";
+import { silentExec } from "./utils/shell";
 
 const main = async () => {
   const { isScratch, tools, projectDetails } = await makeQuestions();
@@ -46,8 +45,8 @@ const main = async () => {
   });
 
   setTimeout(() => {
-    shell.exec("git init");
-    shell.exec("git add .");
+    silentExec("git init");
+    silentExec("git add .");
     createCommit("Initial commit from vite-helper");
   }, 500);
 };

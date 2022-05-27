@@ -1,6 +1,8 @@
 import fs from "fs";
 import shell from "shelljs";
 
+import { silentExec } from "../utils/shell";
+
 type CreateViteProp = {
   isTypescript: boolean;
   packageName: string;
@@ -12,7 +14,7 @@ export const createVite = async ({
 }: CreateViteProp) => {
   const extension = isTypescript ? "ts" : "js";
 
-  shell.exec(
+  silentExec(
     `git clone https://github.com/vite-helper/vite-with-react-${extension} ${packageName}`,
   );
 
@@ -31,6 +33,5 @@ export const createVite = async ({
   });
 
   fs.rmSync(".github", { recursive: true });
-
   fs.rmSync(".git", { recursive: true });
 };
