@@ -1,3 +1,5 @@
+import shell from "shelljs";
+
 import { downloadFile } from "../utils/downloadFile";
 
 export const eslintPrettierEditorConfig = (isTypescriptProject: boolean) => {
@@ -25,7 +27,8 @@ export const eslintPrettierEditorConfig = (isTypescriptProject: boolean) => {
   downloadFile("prettier/.prettierignore", "");
 
   downloadFile(`eslint/.eslintignore`, "");
-  downloadFile(`eslint/${folder}/.eslintrc.json`, "");
+  downloadFile(`eslint/${folder}/_.eslintrc.json`, "");
+  shell.mv("_.eslintrc.json", ".eslintrc.json");
 
   return {
     devDependencies: [...defaultDependencies, ...typescriptDependencies],
