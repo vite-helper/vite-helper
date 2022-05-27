@@ -1,7 +1,7 @@
 import fs from "fs";
 import shell from "shelljs";
 
-import { silentExec } from "../utils/shell";
+import { silentExec } from "../utils/silentExec";
 
 type CreateViteProp = {
   isTypescript: boolean;

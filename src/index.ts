@@ -4,7 +4,7 @@ import { createCommit } from "./utils/createCommit";
 import { execScript } from "./utils/execScript";
 import { isReactViteProject, isTypescript } from "./utils/identify";
 import { makeQuestions } from "./utils/makeQuestions";
-import { silentExec } from "./utils/shell";
+import { silentExec } from "./utils/silentExec";
 
 const main = async () => {
   const { isScratch, tools, projectDetails } = await makeQuestions();
