@@ -3,6 +3,7 @@ import { addDependencies } from "./utils/addDependencies";
 import { createCommit } from "./utils/createCommit";
 import { execScript } from "./utils/execScript";
 import { isReactViteProject, isTypescript } from "./utils/identify";
+import { finalLogs } from "./utils/logs";
 import { makeQuestions } from "./utils/makeQuestions";
 import { silentExec } from "./utils/silentExec";
 
@@ -48,6 +49,7 @@ const main = async () => {
     silentExec("git init");
     silentExec("git add .");
     createCommit("Initial commit from vite-helper");
+    projectDetails && finalLogs(projectDetails.projectName);
   }, 500);
 };
 

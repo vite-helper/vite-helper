@@ -1,6 +1,7 @@
 import fs from "fs";
 import shell from "shelljs";
 
+import { errLogs } from "../utils/logs";
 import { silentExec } from "../utils/silentExec";
 
 type CreateViteProp = {
@@ -22,13 +23,16 @@ export const createVite = async ({
 
   fs.readFile("./package.json", "utf8", (err, data) => {
     if (err) {
-      console.log(err);
+      errLogs(err);
+      return;
     }
 
     const result = data.replace(`vite-with-react-${extension}`, packageName);
 
     fs.writeFile("./package.json", result, "utf8", err => {
-      if (err) throw err;
+      if (err) {
+        errLogs(err);
+      }
     });
   });
 
