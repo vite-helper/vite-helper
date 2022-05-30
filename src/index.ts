@@ -50,7 +50,7 @@ const main = async () => {
     silentExec("git add .");
     createCommit("Initial commit from vite-helper");
     projectDetails && finalLogs(projectDetails.projectName);
-  }, 500);
+  }, 3000);
 };
 
 main();
