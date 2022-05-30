@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import App from "../App";
 
-export const AppRouter = () => {
+const AppRouter = () => {
   return (
     <Router>
       <Routes>
@@ -11,3 +11,5 @@ export const AppRouter = () => {
     </Router>
   );
 };
+
+export default AppRouter;
