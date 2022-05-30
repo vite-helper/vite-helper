@@ -19,6 +19,7 @@
     "@types/shelljs": "^0.8.11",
     "@typescript-eslint/eslint-plugin": "^5.26.0",
     "@typescript-eslint/parser": "^5.26.0",
+    "chalk": "^5.0.1",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^8.16.0",
     "eslint-config-prettier": "^8.5.0",
@@ -46,8 +47,8 @@
     }
   },
   "dependencies": {
-    "shelljs": "^0.8.5",
     "inquirer": "^8.2.4",
-    "node-downloader-helper": "^2.1.1"
+    "node-downloader-helper": "^2.1.1",
+    "shelljs": "^0.8.5"
   }
 }

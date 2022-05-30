@@ -22,13 +22,17 @@ export const eslintPrettierEditorConfig = (isTypescriptProject: boolean) => {
 
   const folder = isTypescriptProject ? "ts" : "js";
 
-  downloadFile("editorconfig/.editorconfig", "");
-  downloadFile("prettier/.prettierrc", "");
-  downloadFile("prettier/.prettierignore", "");
+  const syncDownload = async () => {
+    await downloadFile("editorconfig/.editorconfig", "");
+    await downloadFile("prettier/.prettierrc", "");
+    await downloadFile("prettier/.prettierignore", "");
 
-  downloadFile(`eslint/.eslintignore`, "");
-  downloadFile(`eslint/${folder}/_.eslintrc.json`, "");
-  shell.mv("_.eslintrc.json", ".eslintrc.json");
+    await downloadFile(`eslint/.eslintignore`, "");
+    await downloadFile(`eslint/${folder}/_.eslintrc.json`, "");
+    shell.mv("_.eslintrc.json", ".eslintrc.json");
+  };
+
+  syncDownload();
 
   return {
     devDependencies: [...defaultDependencies, ...typescriptDependencies],
