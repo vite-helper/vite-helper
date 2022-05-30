@@ -2,7 +2,7 @@ import { DownloaderHelper } from "node-downloader-helper";
 
 import { errLogs } from "./logs";
 
-export const downloadFile = (assetName: string, path: string) => {
+export const downloadFile = async (assetName: string, path: string) => {
   const baseUrl =
     "https://raw.githubusercontent.com/vite-helper/vite-helper/develop/assets/";
 
@@ -10,6 +10,6 @@ export const downloadFile = (assetName: string, path: string) => {
     `${baseUrl}${assetName}`,
     `${process.cwd()}${path}`,
   );
-  dl.on("error", err => console.log("Download Failed", err));
-  dl.start().catch(err => errLogs(err));
+  await dl.on("error", err => console.log("Download Failed", err));
+  await dl.start().catch(err => errLogs(err));
 };
