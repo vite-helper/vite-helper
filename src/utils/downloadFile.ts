@@ -4,7 +4,7 @@ import { errLogs } from "./logs";
 
 export const downloadFile = async (assetName: string, path: string) => {
   const baseUrl =
-    "https://raw.githubusercontent.com/wesleyara/vite-helper/develop/assets/";
+    "https://raw.githubusercontent.com/vite-helper/vite-helper/develop/assets/";
 
   const dl = new DownloaderHelper(
     `${baseUrl}${assetName}`,
