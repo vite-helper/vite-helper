@@ -49,6 +49,7 @@ export const makeQuestions = async (): Promise<IQuestionsData> => {
       "ESlint, Prettier and Editorconfig",
       "Vite svgr",
       "React Router Dom",
+      "Tailwind",
     ],
   });
 
