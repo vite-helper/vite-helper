@@ -38,7 +38,7 @@ export const tailwindConfig = (isTypescriptProject: boolean) => {
             }
           });
         })
-      : shell.mv("globals.css", "/src");
+      : shell.mv("globals.css", "./src");
 
     fs.readFile(`./src/main.${extension}x`, "utf8", (err, data) => {
       if (err) {
