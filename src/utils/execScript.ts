@@ -1,5 +1,10 @@
 import { IDependencies } from "../interfaces/Dependencies";
-import { addReactRouter, eslintPrettierEditorConfig, svgr } from "../scripts";
+import {
+  addReactRouter,
+  eslintPrettierEditorConfig,
+  svgr,
+  tailwindConfig,
+} from "../scripts";
 
 export const execScript = (toolName: string, isTypescriptProject: boolean) => {
   let dependencies = {} as IDependencies;
@@ -12,6 +17,9 @@ export const execScript = (toolName: string, isTypescriptProject: boolean) => {
       break;
     case "React Router Dom":
       dependencies = addReactRouter(isTypescriptProject);
+      break;
+    case "Tailwind":
+      dependencies = tailwindConfig(isTypescriptProject);
       break;
     default:
       console.log("This tool was not found");
