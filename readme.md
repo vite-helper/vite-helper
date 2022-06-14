@@ -71,4 +71,4 @@ These are just some of the ways you can contribute to the project read the [CONT
 
 # 📄 License
 
-Vite helper is a open source project [licensed as MIT](LICENSE).
+Vite helper is a open source project licensed as [MIT](LICENSE).

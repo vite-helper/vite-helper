@@ -1,5 +1,7 @@
 import * as fs from "fs";
 
+import { errLogs } from "../utils/logs";
+
 export const svgr = (isTypescriptProject: boolean) => {
   const basePath = process.cwd();
   let viteConfigPath = `${basePath}/vite.config.js`;
@@ -14,7 +16,7 @@ export const svgr = (isTypescriptProject: boolean) => {
 
   fs.readFile(viteConfigPath, "utf8", (err, data) => {
     if (err) {
-      console.log("Error: " + err);
+      errLogs(err);
       return;
     }
 
@@ -27,7 +29,7 @@ export const svgr = (isTypescriptProject: boolean) => {
 
     fs.writeFile(viteConfigPath, viteConfig, err => {
       if (err) {
-        console.log("Error: " + err);
+        errLogs(err);
       }
     });
   });
