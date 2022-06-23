@@ -1,8 +1,8 @@
 import * as fs from "fs";
 
-import { errLogs } from "../utils/logs";
+import { errLog } from "../utils/logs";
 
-export const svgr = (isTypescriptProject: boolean) => {
+export const svgr = async (isTypescriptProject: boolean) => {
   const basePath = process.cwd();
   let viteConfigPath = `${basePath}/vite.config.js`;
 
@@ -15,10 +15,7 @@ export const svgr = (isTypescriptProject: boolean) => {
   }
 
   fs.readFile(viteConfigPath, "utf8", (err, data) => {
-    if (err) {
-      errLogs(err);
-      return;
-    }
+    if (err) return errLog(err);
 
     const haveMoreOnePlugin = !(data.indexOf("[react()]") >= 0);
     data = data.replace(
@@ -28,9 +25,7 @@ export const svgr = (isTypescriptProject: boolean) => {
     const viteConfig = "import svgr from 'vite-plugin-svgr';\r\n" + data;
 
     fs.writeFile(viteConfigPath, viteConfig, err => {
-      if (err) {
-        errLogs(err);
-      }
+      if (err) return errLog(err);
     });
   });
 

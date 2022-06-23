@@ -29,10 +29,10 @@ export const makeQuestions = async (): Promise<IQuestionsData> => {
     name: "tools",
     message: "Which tools do you want to use?",
     choices: [
-      "🧑‍💻 | ESlint, Prettier and Editorconfig",
-      "🧑‍💻 | Vite svgr",
-      "✨ | React Router Dom",
-      "🎨 | Tailwind",
+      "ESlint, Prettier and Editorconfig",
+      "Vite svgr",
+      "React Router Dom",
+      "Tailwind",
     ],
   });
 
