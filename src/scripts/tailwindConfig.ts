@@ -18,7 +18,7 @@ export const tailwindConfig = async (isTypescriptProject: boolean) => {
   fs.readFile(`./src/main.${extension}x`, "utf8", (err, data) => {
     if (err) return errLog(err);
 
-    const result = "import './styles/globals.css';\n\r" + data;
+    const result = `import "./styles/globals.css";\n\r` + data;
 
     fs.writeFile(`./src/main.${extension}x`, result, "utf8", err => {
       if (err) return errLog(err);

@@ -26,8 +26,7 @@ export const eslintPrettierEditorConfig = async (
       "prettier",
       "eslint",
       "eslint-config-prettier",
-      "eslint-plugin-import",
-      "eslint-plugin-import-helpers",
+
       "eslint-plugin-prettier",
       "eslint-plugin-react",
       "eslint-plugin-react-hooks",
