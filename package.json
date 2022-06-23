@@ -11,7 +11,7 @@
     "eslint": "eslint --ext js,ts .",
     "build": "tsc --declaration",
     "dev": "ts-node src/index.ts",
-    "debug": "rm -r my-project && yarn build && node dist/"
+    "clean": "rm -r my-project"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
