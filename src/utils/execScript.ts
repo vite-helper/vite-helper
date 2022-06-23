@@ -4,6 +4,7 @@ import {
   reactRouterDom,
   svgr,
   tailwindConfig,
+  vitest,
 } from "../scripts";
 
 export const execScript = async (
@@ -27,6 +28,9 @@ export const execScript = async (
       break;
     case "Tailwind":
       dependencies = await tailwindConfig(isTypescriptProject);
+      break;
+    case "Vitest":
+      dependencies = await vitest(isTypescriptProject);
       break;
     default:
       console.log("This tool was not found");

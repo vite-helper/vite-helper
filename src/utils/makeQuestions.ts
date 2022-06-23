@@ -33,6 +33,7 @@ export const makeQuestions = async (): Promise<IQuestionsData> => {
       "Vite svgr",
       "React Router Dom",
       "Tailwind",
+      "Vitest",
     ],
   });
 
