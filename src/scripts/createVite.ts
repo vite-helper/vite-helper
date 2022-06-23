@@ -1,19 +1,16 @@
 import fs from "fs";
 import { cd } from "shelljs";
 
+import { IProjectDetails } from "../interfaces/projectDetails";
 import { downloadFile } from "../utils/downloadFile";
 import { silentExec } from "../utils/shell";
-
-interface ICreateViteData {
-  isTypescript: boolean;
-  projectName: string;
-}
 
 export const createVite = async ({
   isTypescript,
   projectName,
-}: ICreateViteData) => {
+}: IProjectDetails) => {
   const folder = isTypescript ? "ts" : "js";
+  const extension = folder + "x";
 
   silentExec(
     `npm create vite@latest ${projectName} -- --template react${
@@ -34,8 +31,11 @@ export const createVite = async ({
     downloadFile(`viteTemplate/vercel.json`, ""),
     downloadFile(`viteTemplate/.gitattributes`, ""),
     downloadFile(`viteTemplate/_redirects`, "/public"),
-    downloadFile(`viteTemplate/${folder}/main.tsx`, "/src"),
-    downloadFile(`viteTemplate/${folder}/index.tsx`, "/src/pages/Home"),
+    downloadFile(`viteTemplate/${folder}/main.${extension}`, "/src"),
+    downloadFile(
+      `viteTemplate/${folder}/index.${extension}`,
+      "/src/pages/Home",
+    ),
     isTypescript
       ? downloadFile(`viteTemplate/${folder}/vite-env.d.ts`, "/src")
       : null,

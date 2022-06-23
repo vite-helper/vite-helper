@@ -1,15 +1,14 @@
 import inquirer from "inquirer";
 
+import { IProjectDetails } from "../interfaces/projectDetails";
+
 interface IQuestionsData {
   tools: string[];
-  projectDetails: {
-    projectName: string;
-    isTypescript: boolean;
-  };
+  projectDetails: IProjectDetails;
 }
 
 export const makeQuestions = async (): Promise<IQuestionsData> => {
-  const projectDetails = await inquirer.prompt([
+  const projectDetails = await inquirer.prompt<IProjectDetails>([
     {
       type: "input",
       name: "projectName",
