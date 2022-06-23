@@ -1,36 +1,32 @@
 import { IDependencies } from "../interfaces/Dependencies";
-import {
-  eslintPrettierEditorConfig,
-  reactRouterDom,
-  svgr,
-  tailwindConfig,
-  vitest,
-} from "../scripts";
+import * as script from "../scripts";
 
 export const execScript = async (
   toolName: string,
   isTypescriptProject: boolean,
 ) => {
-  let dependencies = {
+  let dependencies: IDependencies = {
     devDependencies: [],
     dependencies: [],
-  } as IDependencies;
+  };
 
   switch (toolName) {
     case "ESlint, Prettier and Editorconfig":
-      dependencies = await eslintPrettierEditorConfig(isTypescriptProject);
+      dependencies = await script.eslintPrettierEditorConfig(
+        isTypescriptProject,
+      );
       break;
     case "Vite svgr":
-      dependencies = await svgr(isTypescriptProject);
+      dependencies = await script.svgr(isTypescriptProject);
       break;
     case "React Router Dom":
-      dependencies = await reactRouterDom(isTypescriptProject);
+      dependencies = await script.reactRouterDom(isTypescriptProject);
       break;
     case "Tailwind":
-      dependencies = await tailwindConfig(isTypescriptProject);
+      dependencies = await script.tailwindConfig(isTypescriptProject);
       break;
     case "Vitest":
-      dependencies = await vitest(isTypescriptProject);
+      dependencies = await script.vitest(isTypescriptProject);
       break;
     default:
       console.log("This tool was not found");
