@@ -2,6 +2,9 @@ node_modules
 dist/
 my-project
 
+.env
+.env.local
+
 # Logs
 logs
 *.log
