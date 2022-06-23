@@ -9,27 +9,30 @@
     }
   },
   "extends": [
+    "prettier",
+    "standard",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
-    "standard",
-    "prettier"
+    "plugin:react-hooks/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "eslint-plugin-import-helpers",
-    "prettier",
-    "react-hooks"
-  ],
+  "plugins": "eslint-plugin-import-helpers",
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "import-helpers/order-imports": [
       "warn",
       {
