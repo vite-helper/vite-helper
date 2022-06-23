@@ -1,6 +1,6 @@
 /*.js
 /*.ts
-node_modules
-dist
-assets
-my-project
+/templates
+/node_modules
+/dist
+/my-project
