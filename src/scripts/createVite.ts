@@ -1,41 +1,39 @@
 import fs from "fs";
-import shell from "shelljs";
+import { cd } from "shelljs";
 
-import { errLogs } from "../utils/logs";
-import { silentExec } from "../utils/silentExec";
+import { downloadFile } from "../utils/downloadFile";
+import { silentExec } from "../utils/shell";
 
-type CreateViteProp = {
+interface ICreateViteData {
   isTypescript: boolean;
-  packageName: string;
-};
+  projectName: string;
+}
 
 export const createVite = async ({
   isTypescript,
-  packageName,
-}: CreateViteProp) => {
-  const extension = isTypescript ? "ts" : "js";
+  projectName,
+}: ICreateViteData) => {
+  const folder = isTypescript ? "ts" : "js";
 
   silentExec(
-    `git clone https://github.com/vite-helper/vite-with-react-${extension} ${packageName}`,
+    `npm create vite@latest ${projectName} -- --template react${
+      isTypescript ? "-ts" : ""
+    }`,
   );
 
-  shell.cd(packageName);
+  cd(projectName);
 
-  fs.readFile("./package.json", "utf8", (err, data) => {
-    if (err) {
-      errLogs(err);
-      return;
-    }
+  fs.rmSync("src", { recursive: true });
 
-    const result = data.replace(`vite-with-react-${extension}`, packageName);
+  fs.mkdirSync("src");
+  fs.mkdirSync("src/pages");
+  fs.mkdirSync("src/pages/Home");
 
-    fs.writeFile("./package.json", result, "utf8", err => {
-      if (err) {
-        errLogs(err);
-      }
-    });
-  });
-
-  fs.rmSync(".github", { recursive: true });
-  fs.rmSync(".git", { recursive: true });
+  await Promise.all([
+    downloadFile(`viteTemplate/${folder}/main.tsx`, "/src"),
+    downloadFile(`viteTemplate/${folder}/index.tsx`, "/src/pages/Home"),
+    isTypescript
+      ? downloadFile(`viteTemplate/${folder}/vite-env.d.ts`, "/src")
+      : null,
+  ]);
 };

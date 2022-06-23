@@ -1,66 +1,32 @@
 import fs from "fs";
-import shell from "shelljs";
+import { mkdir } from "shelljs";
 
 import { downloadFile } from "../utils/downloadFile";
-import { errLogs } from "../utils/logs";
+import { errLog } from "../utils/logs";
 
-export const tailwindConfig = (isTypescriptProject: boolean) => {
+export const tailwindConfig = async (isTypescriptProject: boolean) => {
   const extension = isTypescriptProject ? "ts" : "js";
 
-  const syncDownload = async () => {
-    await downloadFile("tailwind/tailwind.config.txt", "");
-    const existsTailwind = fs.existsSync("tailwind.config.txt");
-    existsTailwind &&
-      fs.renameSync("tailwind.config.txt", "tailwind.config.js");
+  mkdir("src/styles");
 
-    await downloadFile("tailwind/globals.txt", "");
-    const existsGlobals = fs.existsSync("globals.txt");
-    existsGlobals && fs.renameSync("globals.txt", "globals.css");
+  await Promise.all([
+    downloadFile("tailwind/globals.css", "/src/styles"),
+    downloadFile("tailwind/tailwind.config.js", ""),
+    downloadFile("tailwind/postcss.config.js", ""),
+  ]);
 
-    await downloadFile("tailwind/postcss.config.txt", "");
-    const existsPostcss = fs.existsSync("postcss.config.txt");
-    existsPostcss && fs.renameSync("postcss.config.txt", "postcss.config.js");
+  fs.readFile(`./src/main.${extension}x`, "utf8", (err, data) => {
+    if (err) return errLog(err);
 
-    const globals = fs.existsSync("./src/globals.css");
-    globals
-      ? fs.readFile("./src/globals.css", (err, data) => {
-          if (err) {
-            errLogs(err);
-          }
+    const result = "import './styles/globals.css';\n\r" + data;
 
-          const result =
-            "@tailwind base;\n\r @tailwind components;\n\r @tailwind utilities;\n\r" +
-            data;
-
-          fs.writeFile("./src/globals.css", result, err => {
-            if (err) {
-              errLogs(err);
-            }
-          });
-        })
-      : shell.mv("globals.css", "./src");
-
-    fs.readFile(`./src/main.${extension}x`, "utf8", (err, data) => {
-      if (err) {
-        errLogs(err);
-      }
-
-      const result = "import './globals.css';\n\r" + data;
-
-      fs.writeFile(`./src/main.${extension}x`, result, "utf8", err => {
-        if (err) {
-          errLogs(err);
-        }
-      });
+    fs.writeFile(`./src/main.${extension}x`, result, "utf8", err => {
+      if (err) return errLog(err);
     });
-  };
-
-  syncDownload();
-
-  const defaultDependencies = ["tailwindcss", "postcss", "autoprefixer"];
+  });
 
   return {
-    devDependencies: [...defaultDependencies],
+    devDependencies: ["tailwindcss", "postcss", "autoprefixer"],
     dependencies: [],
   };
 };

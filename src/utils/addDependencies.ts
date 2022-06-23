@@ -1,4 +1,4 @@
-import shell from "shelljs";
+import { exec } from "shelljs";
 
 import { IDependencies } from "../interfaces/Dependencies";
 
@@ -9,11 +9,11 @@ export const addDependencies = async ({
   console.log("");
 
   if (dependencies.length) {
-    shell.exec(`npx add-dependencies ${dependencies.join(" ")}`);
+    exec(`npx add-dependencies ${dependencies.join(" ")}`);
     console.log("");
   }
 
   if (devDependencies.length) {
-    shell.exec(`npx add-dependencies ${devDependencies.join(" ")} -D`);
+    exec(`npx add-dependencies ${devDependencies.join(" ")} -D`);
   }
 };
