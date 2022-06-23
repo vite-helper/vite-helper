@@ -26,10 +26,14 @@ export const createVite = async ({
   fs.rmSync("src", { recursive: true });
 
   fs.mkdirSync("src");
+  fs.mkdirSync("public");
   fs.mkdirSync("src/pages");
   fs.mkdirSync("src/pages/Home");
 
   await Promise.all([
+    downloadFile(`viteTemplate/vercel.json`, ""),
+    downloadFile(`viteTemplate/.gitattributes`, ""),
+    downloadFile(`viteTemplate/_redirects`, "/public"),
     downloadFile(`viteTemplate/${folder}/main.tsx`, "/src"),
     downloadFile(`viteTemplate/${folder}/index.tsx`, "/src/pages/Home"),
     isTypescript
