@@ -65,33 +65,17 @@ These are just some of the ways you can contribute to the project read the [CONT
 
 **OBS:** If you are adding a new tool make a `.env` following the `.env-example`, create your files inside the template folder and make a commit adding the files, now you can use the `downloadFile` utility to create the script for your tool.
 
-# :adult: Thanks
+# :adult: Authors
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/tl-lucasestevam"><img src="https://avatars.githubusercontent.com/u/58372525?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Estevam</b></sub></a><br /><a href="#tool-tl-lucasestevam" title="Tools">🔧</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://wesleyaraujo.dev/"><img src="https://avatars.githubusercontent.com/u/89321125?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wesley Araújo</b></sub></a><br /><a href="#tool-wesleyara" title="Tools">🔧</a></td>
-  </tr>
-    <tr>
-    <td align="center"><a href="https://github.com/AugustoTI"><img src="https://avatars.githubusercontent.com/u/89668244?v=4?s=100" width="100px;" alt=""/><br /><sub><b>AugustoTI</b></sub></a><br /><a href="#tool-AugustoTI" title="Tools">🔧</a></td>
+    <td align="center"><a href="https://github.com/tl-lucasestevam"><img src="https://avatars.githubusercontent.com/u/58372525?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Estevam</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/AugustoTI"><img src="https://avatars.githubusercontent.com/u/89668244?v=4?s=100" width="100px;" alt=""/><br /><sub><b>AugustoTI</b></sub></a><br /></td>
+    <td align="center"><a href="https://wesleyaraujo.dev/"><img src="https://avatars.githubusercontent.com/u/89321125?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wesley Araújo</b></sub></a><br /></td>
   </tr>
 </table>
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-# :page_facing_up: License
-
-Vite helper is a open source project licensed as [MIT](LICENSE).
-
-## Contributors ✨
+## ✨ Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -103,3 +87,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+# :page_facing_up: License
+
+Vite helper is a open source project licensed as [MIT](LICENSE).
