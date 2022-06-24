@@ -6,7 +6,7 @@ import { errLog } from "./logs";
 export const downloadFile = async (assetPath: string, destinationPath = "") => {
   const username = process.env.GITHUB_USERNAME ?? "vite-helper";
   const repo = process.env.GITHUB_REPO ?? "vite-helper";
-  const branch = process.env.GITHUB_BRANCH ?? "develop";
+  const branch = process.env.GITHUB_BRANCH ?? "main";
 
   const baseUrl = `https://raw.githubusercontent.com/${username}/${repo}/${branch}/templates/`;
 
