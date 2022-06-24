@@ -3,6 +3,26 @@
   "version": "1.1.1",
   "bin": "dist/script.js",
   "license": "MIT",
+  "homepage": "https://github.com/vite-helper/vite-helper",
+  "bugs": "https://github.com/vite-helper/vite-helper/issues",
+  "contributors": [
+    {
+      "name": "Lucas Estevam",
+      "url": "https://github.com/tl-lucasestevam"
+    },
+    {
+      "name": "Wesley Araújo",
+      "url": "https://github.com/wesleyara"
+    },
+    {
+      "name": "Augusto César",
+      "url": "https://github.com/AugustoTI"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vite-helper/vite-helper.git"
+  },
   "scripts": {
     "prepare": "husky install",
     "commit": "git-cz",

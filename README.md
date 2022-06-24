@@ -4,13 +4,14 @@
 
 <h2 align="center">Vite helper helps you configure tools for react projects with vite</h2>
 
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
+[![npm version](https://img.shields.io/npm/v/vite-helper.svg?style=flat-square)](https://www.npmjs.org/package/vite-helper)
+[![npm downloads](https://img.shields.io/npm/dm/vite-helper.svg?style=flat-square)](http://npm-stat.com/charts.html?package=cz-conventional-changelog&from=2015-08-01) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section --> [![All Contributors](https://img.shields.io/badge/all_contributors-3-green.svg?style=flat-square)](#contributors-) <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <h4 align="center">
  <a href="#-how-use">:rocket: How use</a> •
- <a href="#️-tools">:tools: Tools</a> •
+ <a href="#️-tools">🛠️ Tools</a> •
  <a href="#-contributing">:pencil: Contributing</a> •
  <a href="#-thanks">:adult: Thanks</a> •
  <a href="#-license">:page_facing_up: License</a>
@@ -30,7 +31,7 @@ npx vite-helper
 
 Answer the questions (When choosing the tool, use the arrows keys to navigate, the spacebar to select and enter to finish)
 
-# :tools: Tools
+# 🛠️ Tools
 
 ## :technologist: Improve Developer experience
 
@@ -84,6 +85,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
