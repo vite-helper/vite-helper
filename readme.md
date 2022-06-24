@@ -28,25 +28,26 @@ Answer the questions (When choosing the tool, use the arrows keys to navigate, t
 
 # 🛠️ Tools
 
-## 🧑‍💻 To Improve Developer experience
+## 🧑‍💻 Improve Developer experience
 
 - [Eslint](https://eslint.org/docs/user-guide/configuring/), [Prettier](https://prettier.io) and [Editorconfig](https://editorconfig.org)
-- [Vire svgr](https://github.com/pd4d10/vite-plugin-svgr)
 - [Lint Staged](https://github.com/okonet/lint-staged) (with [husky](https://typicode.github.io/husky/#/)) | **Under development**
 - [Commitizen](https://github.com/commitizen/cz-cli) and [Commitlint](https://commitlint.js.org/#/) (with [husky](https://typicode.github.io/husky/#/)) | **Under development**
 - Basic CI (with [github actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)) | **Under development**
 
 ## 🎨 Style Libraries
 
-- [Tailwind](https://tailwindcss.com/docs/installation) | **Under development**
+- [Tailwind](https://tailwindcss.com/docs/installation)
 - [Styled Components](https://styled-components.com) | **Under development**
 
 ## ✨ Others
 
+- [React Router Dom](https://v5.reactrouter.com/web/guides/quick-start)
 - [Storybook](https://storybook.js.org/docs/react/get-started/introduction) | **Under development**
 
 ## 🧪 Tests
 
+- [Vitest](https://vitest.dev/guide/why.html) with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Jest](https://jestjs.io/docs/getting-started) with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) | **Under development**
 
 # 📝 Contributing
