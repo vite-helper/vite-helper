@@ -1,14 +1,9 @@
-import inquirer from "inquirer";
+import { prompt } from "inquirer";
 
 import { IProjectDetails } from "../interfaces/ProjectDetails";
 
-interface IQuestionsData {
-  tools: string[];
-  projectDetails: IProjectDetails;
-}
-
-export const makeQuestions = async (): Promise<IQuestionsData> => {
-  const projectDetails = await inquirer.prompt<IProjectDetails>([
+export const makeQuestions = async () => {
+  const projectDetails = await prompt<IProjectDetails>([
     {
       type: "input",
       name: "projectName",
@@ -23,7 +18,7 @@ export const makeQuestions = async (): Promise<IQuestionsData> => {
     },
   ]);
 
-  const { tools } = await inquirer.prompt({
+  const { tools } = await prompt<{ tools: string[] }>({
     type: "checkbox",
     name: "tools",
     message: "Which tools do you want to use?",
