@@ -1,25 +1,26 @@
 import { mv } from "shelljs";
 
+import { IDependencies } from "../interfaces/Dependencies";
 import { downloadFile } from "../utils/downloadFile";
 
 export const eslintPrettierEditorConfig = async (
-  isTypescriptProject: boolean,
-) => {
-  const typescriptDependencies = isTypescriptProject
-    ? ["@typescript-eslint/eslint-plugin", "@typescript-eslint/parser"]
-    : [];
-
-  const folder = isTypescriptProject ? "ts" : "js";
+  isTypescript: boolean,
+): Promise<IDependencies> => {
+  const folder = isTypescript ? "ts" : "js";
 
   await Promise.all([
-    downloadFile("editorConfig/.editorconfig", ""),
-    downloadFile("prettier/.prettierignore", ""),
-    downloadFile("prettier/.prettierrc", ""),
-    downloadFile(`eslint/.eslintignore`, ""),
-    downloadFile(`eslint/${folder}/_.eslintrc.json`, ""),
+    downloadFile("editorConfig/.editorconfig"),
+    downloadFile("prettier/.prettierignore"),
+    downloadFile("prettier/.prettierrc"),
+    downloadFile(`eslint/.eslintignore`),
+    downloadFile(`eslint/${folder}/_.eslintrc.json`),
   ]);
 
   mv("_.eslintrc.json", ".eslintrc.json");
+
+  const typescriptDependencies = isTypescript
+    ? ["@typescript-eslint/eslint-plugin", "@typescript-eslint/parser"]
+    : [];
 
   return {
     devDependencies: [

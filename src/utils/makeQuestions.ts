@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 
-import { IProjectDetails } from "../interfaces/projectDetails";
+import { IProjectDetails } from "../interfaces/ProjectDetails";
 
 interface IQuestionsData {
   tools: string[];
@@ -29,7 +29,6 @@ export const makeQuestions = async (): Promise<IQuestionsData> => {
     message: "Which tools do you want to use?",
     choices: [
       "ESlint, Prettier and Editorconfig",
-      "Vite svgr",
       "React Router Dom",
       "Tailwind",
       "Vitest",
