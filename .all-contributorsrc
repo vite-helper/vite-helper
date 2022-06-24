@@ -1,0 +1,42 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "AugustoTI",
+      "name": "AugustoTI",
+      "avatar_url": "https://avatars.githubusercontent.com/u/89668244?v=4",
+      "profile": "https://github.com/AugustoTI",
+      "contributions": [
+        "tool"
+      ]
+    },
+    {
+      "login": "wesleyara",
+      "name": "Wesley Araújo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/89321125?v=4",
+      "profile": "https://wesleyaraujo.dev/",
+      "contributions": [
+        "tool"
+      ]
+    },
+    {
+      "login": "tl-lucasestevam",
+      "name": "Lucas Estevam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58372525?v=4",
+      "profile": "https://github.com/tl-lucasestevam",
+      "contributions": [
+        "tool"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "vite-helper",
+  "projectOwner": "vite-helper",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

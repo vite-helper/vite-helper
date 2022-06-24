@@ -14,9 +14,11 @@ export const vitest = async (isTypescript: boolean): Promise<IDependencies> => {
     downloadFile(`vitest/${folder}/vitest.config.${folder}`),
   ]);
 
-  const tsconfigJson = await getTsConfig();
-  tsconfigJson.compilerOptions.types = ["vitest/globals"];
-  writeTsConfig(tsconfigJson);
+  if (isTypescript) {
+    const tsconfigJson = await getTsConfig();
+    tsconfigJson.compilerOptions.types = ["vitest/globals"];
+    writeTsConfig(tsconfigJson);
+  }
 
   return {
     devDependencies: ["c8", "jsdom", "vitest"],
