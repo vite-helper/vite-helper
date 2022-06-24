@@ -6,6 +6,15 @@
   "commit": false,
   "contributors": [
     {
+      "login": "AugustoTI",
+      "name": "AugustoTI",
+      "avatar_url": "https://avatars.githubusercontent.com/u/89668244?v=4",
+      "profile": "https://github.com/AugustoTI",
+      "contributions": [
+        "tool"
+      ]
+    },
+    {
       "login": "wesleyara",
       "name": "Wesley Araújo",
       "avatar_url": "https://avatars.githubusercontent.com/u/89321125?v=4",
