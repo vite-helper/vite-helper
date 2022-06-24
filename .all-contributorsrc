@@ -13,6 +13,24 @@
       "contributions": [
         "tool"
       ]
+    },
+    {
+      "login": "wesleyara",
+      "name": "Wesley Araújo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/89321125?v=4",
+      "profile": "https://wesleyaraujo.dev/",
+      "contributions": [
+        "tool"
+      ]
+    },
+    {
+      "login": "tl-lucasestevam",
+      "name": "Lucas Estevam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58372525?v=4",
+      "profile": "https://github.com/tl-lucasestevam",
+      "contributions": [
+        "tool"
+      ]
     }
   ],
   "contributorsPerLine": 7,

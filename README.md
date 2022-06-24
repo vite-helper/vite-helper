@@ -1,11 +1,12 @@
 <h1 align="center" title="Vite Helper">
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
   Vite Helper
 </h1>
 
 <h2 align="center">Vite helper helps you configure tools for react projects with vite</h2>
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <h4 align="center">
  <a href="#-how-use">:rocket: How use</a> •
@@ -71,6 +72,12 @@ These are just some of the ways you can contribute to the project read the [CONT
 <!-- markdownlint-disable -->
 <table>
   <tr>
+    <td align="center"><a href="https://github.com/tl-lucasestevam"><img src="https://avatars.githubusercontent.com/u/58372525?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Estevam</b></sub></a><br /><a href="#tool-tl-lucasestevam" title="Tools">🔧</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://wesleyaraujo.dev/"><img src="https://avatars.githubusercontent.com/u/89321125?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wesley Araújo</b></sub></a><br /><a href="#tool-wesleyara" title="Tools">🔧</a></td>
+  </tr>
+    <tr>
     <td align="center"><a href="https://github.com/AugustoTI"><img src="https://avatars.githubusercontent.com/u/89668244?v=4?s=100" width="100px;" alt=""/><br /><sub><b>AugustoTI</b></sub></a><br /><a href="#tool-AugustoTI" title="Tools">🔧</a></td>
   </tr>
 </table>
