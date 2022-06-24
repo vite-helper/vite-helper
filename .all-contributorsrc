@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "tl-lucasestevam",
+      "name": "Lucas Estevam",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58372525?v=4",
+      "profile": "https://github.com/tl-lucasestevam",
+      "contributions": [
+        "tool"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "vite-helper",
+  "projectOwner": "vite-helper",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
