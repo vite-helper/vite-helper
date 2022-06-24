@@ -1,6 +1,13 @@
-import { prompt } from "inquirer";
+import { prompt, registerPrompt } from "inquirer";
+import treePrompt from "inquirer-tree-prompt";
 
+import { availableToolsThree } from "../data/tools";
+import { IDependencies } from "../interfaces/Dependencies";
 import { IProjectDetails } from "../interfaces/ProjectDetails";
+
+type ITool = (isTypescript: boolean) => Promise<IDependencies>;
+
+registerPrompt("tree", treePrompt);
 
 export const makeQuestions = async () => {
   const projectDetails = await prompt<IProjectDetails>([
@@ -16,19 +23,24 @@ export const makeQuestions = async () => {
       message: "Do you want to use typescript?",
       default: false,
     },
+    {
+      type: "confirm",
+      name: "installTools",
+      message: "Do you want to add additional tools?",
+      default: false,
+    },
   ]);
 
-  const { tools } = await prompt<{ tools: string[] }>({
-    type: "checkbox",
-    name: "tools",
-    message: "Which tools do you want to use?",
-    choices: [
-      "ESlint, Prettier and Editorconfig",
-      "React Router Dom",
-      "Tailwind",
-      "Vitest",
-    ],
-  });
+  if (projectDetails.installTools) {
+    console.log("");
+    console.log(
+      "Use the side arrows on the keyboard to open or close a tree, the up and down arrows to navigate through categories and the spacebar to select a tool",
+    );
+    console.log("");
 
-  return { tools, projectDetails };
+    const { tools } = await prompt<{ tools: ITool[] }>(availableToolsThree);
+    return { tools, projectDetails };
+  }
+
+  return { tools: [], projectDetails };
 };
