@@ -73,6 +73,9 @@ These are just some of the ways you can contribute to the project read the [CONT
   <tr>
     <td align="center"><a href="https://github.com/tl-lucasestevam"><img src="https://avatars.githubusercontent.com/u/58372525?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Lucas Estevam</b></sub></a><br /><a href="#tool-tl-lucasestevam" title="Tools">🔧</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://wesleyaraujo.dev/"><img src="https://avatars.githubusercontent.com/u/89321125?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Wesley Araújo</b></sub></a><br /><a href="#tool-wesleyara" title="Tools">🔧</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
