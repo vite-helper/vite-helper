@@ -14,7 +14,7 @@
 
 <br>
 
-<img align="center" src="./.github/assets/demo.gif" alt="Vite helper Demo" height="500px"/>
+<img align="center" src="https://raw.githubusercontent.com/vite-helper/vite-helper/develop/.github/assets/demo.gif" alt="Vite helper Demo" height="500px"/>
 
 # 🚀 How use
 
