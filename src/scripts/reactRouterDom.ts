@@ -1,27 +1,24 @@
 import fs from "fs";
 
+import { IDependencies } from "../interfaces/Dependencies";
 import { downloadFile } from "../utils/downloadFile";
-import { errLog } from "../utils/logs";
+import { replaceFileText } from "../utils/manipulateFiles";
 
-export const reactRouterDom = async (isTypescriptProject: boolean) => {
-  const extension = isTypescriptProject ? "ts" : "js";
+export const reactRouterDom = async (
+  isTypescript: boolean,
+): Promise<IDependencies> => {
+  const folder = isTypescript ? "ts" : "js";
+  const extension = folder + "x";
 
   fs.mkdirSync("src/router");
 
-  await downloadFile(`router/${extension}/index.${extension}x`, "/src/router");
+  await downloadFile(`router/${folder}/index.${extension}`, "/src/router");
 
-  fs.readFile(`./src/main.${extension}x`, "utf8", (err, data) => {
-    if (err) return errLog(err);
-
-    const replaced = data
-      .replace("<App />", "<AppRouter />")
-      .replace(
-        `import App from "./pages/Home"`,
-        `import AppRouter from "./router"`,
-      );
-
-    fs.writeFileSync(`./src/main.${extension}x`, replaced);
-  });
+  replaceFileText(
+    `./src/main.${extension}`,
+    ["<App />", `import App from "./pages/Home"`],
+    ["<AppRouter />", `import AppRouter from "./router"`],
+  );
 
   return {
     devDependencies: [],

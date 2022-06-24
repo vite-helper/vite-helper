@@ -15,10 +15,10 @@ const main = async () => {
   if (fs.existsSync(projectName))
     return errLog("A folder with that name already exists!");
 
-  await createVite({ isTypescript, projectName });
+  const viteDependencies = await createVite({ isTypescript, projectName });
 
-  let dependenciesArr: string[] = [];
-  let devDependenciesArr: string[] = [];
+  let dependenciesArr = viteDependencies.dependencies;
+  let devDependenciesArr = viteDependencies.devDependencies;
 
   for (const tool of tools) {
     const { dependencies, devDependencies } = await execScript(

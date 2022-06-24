@@ -1,24 +1,22 @@
-import fs from "fs";
 import { mkdir } from "shelljs";
 
+import { IDependencies } from "../interfaces/Dependencies";
 import { downloadFile } from "../utils/downloadFile";
+import { getTsConfig, writeTsConfig } from "../utils/manipulateFiles";
 
-export const vitest = async (isTypescriptProject: boolean) => {
-  const folder = isTypescriptProject ? "ts" : "js";
+export const vitest = async (isTypescript: boolean): Promise<IDependencies> => {
+  const folder = isTypescript ? "ts" : "js";
 
   mkdir("src/.vitest");
 
   await Promise.all([
     downloadFile(`vitest/${folder}/setup.${folder}`, "/src/.vitest"),
-    downloadFile(`vitest/${folder}/vitest.config.${folder}`, ""),
+    downloadFile(`vitest/${folder}/vitest.config.${folder}`),
   ]);
 
-  const tsconfigJson = fs.readFileSync(`${process.cwd()}/tsconfig.json`);
-  const parsedTsconfig = JSON.parse(tsconfigJson.toString());
-
-  parsedTsconfig.compilerOptions.types = ["vitest/globals"];
-
-  fs.writeFileSync("tsconfig.json", JSON.stringify(parsedTsconfig, null, 2));
+  const tsconfigJson = await getTsConfig();
+  tsconfigJson.compilerOptions.types = ["vitest/globals"];
+  await writeTsConfig(tsconfigJson);
 
   return {
     devDependencies: ["c8", "jsdom", "vitest"],
