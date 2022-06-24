@@ -6,6 +6,7 @@ import { addDependencies } from "./utils/addDependencies";
 import { execScript } from "./utils/execScript";
 import { errLog, finalLog } from "./utils/logs";
 import { makeQuestions } from "./utils/makeQuestions";
+import { silentExec } from "./utils/shell";
 
 const main = async () => {
   const {
@@ -36,6 +37,12 @@ const main = async () => {
       dependencies: dependenciesArr,
       devDependencies: devDependenciesArr,
     });
+
+    silentExec("git init");
+    silentExec("git add .");
+    silentExec(
+      `git commit -m "chore: inicial project structure by vite-helper"`,
+    );
 
     finalLog(projectName);
   } catch {
