@@ -19,18 +19,19 @@ export const downloadFile = async (
       `${process.cwd()}${destinationPath}`,
     );
 
-    console.log(`Downloading: ${assetPath}`);
-
-    dl.on("end", () => resolve());
+    dl.on("end", () => {
+      console.log(`Downloading: ${assetPath}`);
+      resolve();
+    });
 
     dl.start().catch(err => {
-      errLog(assetPath + String(err).replace("Error:", ", "));
+      errLog(assetPath + err.message);
       reject(err);
     });
 
     dl.on("error", err => {
-      errLog(assetPath + String(err).replace("Error:", ", "));
-      reject(err);
+      errLog(assetPath + err.message);
+      reject(err.message);
     });
   });
 };
