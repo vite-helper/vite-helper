@@ -3,7 +3,6 @@ import { cd } from "shelljs";
 
 import { createVite } from "./scripts/createVite";
 import { addDependencies } from "./utils/addDependencies";
-import { execScript } from "./utils/execScript";
 import { errLog, finalLog } from "./utils/logs";
 import { makeQuestions } from "./utils/makeQuestions";
 import { silentExec } from "./utils/shell";
@@ -11,23 +10,24 @@ import { silentExec } from "./utils/shell";
 const main = async () => {
   const {
     tools,
-    projectDetails: { isTypescript, projectName },
+    projectDetails: { isTypescript, projectName, installTools },
   } = await makeQuestions();
 
   if (fs.existsSync(projectName))
     return errLog("A folder with that name already exists!");
 
   try {
-    const viteDependencies = await createVite({ isTypescript, projectName });
+    const viteDependencies = await createVite({
+      isTypescript,
+      projectName,
+      installTools,
+    });
 
     let dependenciesArr = viteDependencies.dependencies;
     let devDependenciesArr = viteDependencies.devDependencies;
 
     for (const tool of tools) {
-      const { dependencies, devDependencies } = await execScript(
-        tool,
-        isTypescript,
-      );
+      const { dependencies, devDependencies } = await tool(isTypescript);
 
       dependenciesArr = [...dependenciesArr, ...dependencies];
       devDependenciesArr = [...devDependenciesArr, ...devDependencies];
