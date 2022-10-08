@@ -2353,10 +2353,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-node-downloader-helper@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/node-downloader-helper/-/node-downloader-helper-2.1.1.tgz#533427a3cdc163931b106d0fe6d522f83deac7ab"
-  integrity sha512-ouk8MGmJj1gYymbJwi1L8Mr6PdyheJLwfsmyx0KtsvyJ+7Fpf0kBBzM8Gmx8Mt/JBfRWP1PQm6dAGV6x7eNedw==
+node-downloader-helper@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/node-downloader-helper/-/node-downloader-helper-2.1.4.tgz#6e1d20ea0c7d0dfcfdf2a599dc389c33a322736a"
+  integrity sha512-Cbc5jwGTe58apFIPjxgcUzX0Se+pcUgdbym6G+sk2yb1m/qwxYTLmD4C2xEHTJO9YkZ/eRujMJPl3WW+7fVksQ==
 
 normalize-package-data@^2.5.0:
   version "2.5.0"
