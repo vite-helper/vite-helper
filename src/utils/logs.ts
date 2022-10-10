@@ -10,6 +10,5 @@ export const finalLog = (projectName: string) => {
 };
 
 export const errLog = (err: NodeJS.ErrnoException | ErrorStats | string) => {
-  console.log("");
   console.log("Error: " + err);
 };

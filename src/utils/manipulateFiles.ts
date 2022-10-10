@@ -8,6 +8,18 @@ interface ITsConfig {
   };
 }
 
+interface IPackageJson {
+  scripts: {
+    [key: string]: string;
+  };
+  devDependencies: {
+    [key: string]: string;
+  };
+  dependencies: {
+    [key: string]: string;
+  };
+}
+
 export const addImport = (file: string, importStatement: string[] | string) => {
   fs.readFile(file, "utf8", (err, data) => {
     if (err) return errLog(err);
@@ -82,13 +94,24 @@ export const addVitePlugin = (
   });
 };
 
-export const getTsConfig = (): Promise<ITsConfig> => {
+export const getTsConfig = (): ITsConfig => {
   const tsconfigJson = fs.readFileSync("tsconfig.json");
   const parsedTsconfig = JSON.parse(tsconfigJson.toString());
 
   return parsedTsconfig;
 };
 
+export const getPackageJson = (): IPackageJson => {
+  const packageJson = fs.readFileSync("package.json");
+  const parsedPackageJson = JSON.parse(packageJson.toString());
+
+  return parsedPackageJson;
+};
+
 export const writeTsConfig = (tsConfig: ITsConfig) => {
   fs.writeFileSync("tsconfig.json", JSON.stringify(tsConfig, null, 2));
+};
+
+export const writePackageJson = (packageJson: IPackageJson) => {
+  fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
 };
