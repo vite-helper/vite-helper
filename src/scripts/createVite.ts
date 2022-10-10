@@ -3,6 +3,7 @@ import { cd } from "shelljs";
 
 import { IDependencies } from "../interfaces/Dependencies";
 import { IProjectDetails } from "../interfaces/ProjectDetails";
+import { createFolder } from "../utils/createFolder";
 import { downloadFile } from "../utils/downloadFile";
 import { silentExec } from "../utils/shell";
 
@@ -25,10 +26,9 @@ export const createVite = async ({
   fs.rmSync("src", { recursive: true });
   fs.rmSync(viteConfigName);
 
-  fs.mkdirSync("src");
-  fs.mkdirSync("public");
-  fs.mkdirSync("src/pages");
-  fs.mkdirSync("src/pages/Home");
+  ["src", "public", "src/pages", "src/pages/Home"].forEach(folder => {
+    createFolder(folder);
+  });
 
   await Promise.all([
     downloadFile("viteTemplate/vercel.json"),

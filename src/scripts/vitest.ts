@@ -1,6 +1,5 @@
-import { mkdir } from "shelljs";
-
 import { IDependencies } from "../interfaces/Dependencies";
+import { createFolder } from "../utils/createFolder";
 import { downloadFile } from "../utils/downloadFile";
 import {
   getPackageJson,
@@ -12,7 +11,7 @@ import {
 export const vitest = async (isTypescript: boolean): Promise<IDependencies> => {
   const folder = isTypescript ? "ts" : "js";
 
-  mkdir("src/.vitest");
+  createFolder("src/.vitest");
 
   await Promise.all([
     downloadFile(`vitest/${folder}/setup.${folder}`, "/src/.vitest"),

@@ -1,6 +1,5 @@
-import { mkdir } from "shelljs";
-
 import { IDependencies } from "../interfaces/Dependencies";
+import { createFolder } from "../utils/createFolder";
 import { downloadFile } from "../utils/downloadFile";
 import { addImport } from "../utils/manipulateFiles";
 
@@ -10,7 +9,7 @@ export const tailwindConfig = async (
   const folder = isTypescript ? "ts" : "js";
   const extension = folder + "x";
 
-  mkdir("src/styles");
+  createFolder("src/styles");
 
   await Promise.all([
     downloadFile("tailwind/globals.css", "/src/styles"),
