@@ -1,4 +1,4 @@
-import { prompt, registerPrompt } from "inquirer";
+import inquirer from "inquirer";
 import treePrompt from "inquirer-tree-prompt";
 
 import { availableToolsThree } from "../data/tools";
@@ -7,10 +7,10 @@ import { IProjectDetails } from "../interfaces/ProjectDetails";
 
 type ITool = (isTypescript: boolean) => Promise<IDependencies>;
 
-registerPrompt("tree", treePrompt);
+inquirer.registerPrompt("tree", treePrompt);
 
 export const makeQuestions = async () => {
-  const projectDetails = await prompt<IProjectDetails>([
+  const projectDetails = await inquirer.prompt<IProjectDetails>([
     {
       type: "input",
       name: "projectName",
@@ -38,7 +38,9 @@ export const makeQuestions = async () => {
     );
     console.log("");
 
-    const { tools } = await prompt<{ tools: ITool[] }>(availableToolsThree);
+    const { tools } = await inquirer.prompt<{ tools: ITool[] }>(
+      availableToolsThree,
+    );
     return { tools, projectDetails };
   }
 
