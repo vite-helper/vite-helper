@@ -1,6 +1,5 @@
-import fs from "fs";
-
 import { IDependencies } from "../interfaces/Dependencies";
+import { createFolder } from "../utils/createFolder";
 import { downloadFile } from "../utils/downloadFile";
 import { replaceFileText } from "../utils/manipulateFiles";
 
@@ -10,7 +9,7 @@ export const reactRouterDom = async (
   const folder = isTypescript ? "ts" : "js";
   const extension = folder + "x";
 
-  fs.mkdirSync("src/router");
+  createFolder("src/router");
 
   await downloadFile(`router/${folder}/index.${extension}`, "/src/router");
 

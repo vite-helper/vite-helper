@@ -1,13 +1,17 @@
-import { mkdir } from "shelljs";
-
 import { IDependencies } from "../interfaces/Dependencies";
+import { createFolder } from "../utils/createFolder";
 import { downloadFile } from "../utils/downloadFile";
-import { getTsConfig, writeTsConfig } from "../utils/manipulateFiles";
+import {
+  getPackageJson,
+  getTsConfig,
+  writePackageJson,
+  writeTsConfig,
+} from "../utils/manipulateFiles";
 
 export const vitest = async (isTypescript: boolean): Promise<IDependencies> => {
   const folder = isTypescript ? "ts" : "js";
 
-  mkdir("src/.vitest");
+  createFolder("src/.vitest");
 
   await Promise.all([
     downloadFile(`vitest/${folder}/setup.${folder}`, "/src/.vitest"),
@@ -19,6 +23,13 @@ export const vitest = async (isTypescript: boolean): Promise<IDependencies> => {
     tsconfigJson.compilerOptions.types = ["vitest/globals"];
     writeTsConfig(tsconfigJson);
   }
+
+  const packageJson = getPackageJson();
+
+  packageJson.scripts.test = "vitest";
+  packageJson.scripts.coverage = "vitest run --coverage";
+
+  writePackageJson(packageJson);
 
   return {
     devDependencies: ["c8", "jsdom", "vitest"],
