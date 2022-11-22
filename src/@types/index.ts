@@ -18,3 +18,14 @@ export interface IGithubFile {
   encoding: string;
   _links: ILinks;
 }
+
+export interface IDependencies {
+  dependencies: string[];
+  devDependencies: string[];
+}
+
+export interface IProjectDetails {
+  projectName: string;
+  isTypescript: boolean;
+  installTools: boolean;
+}
