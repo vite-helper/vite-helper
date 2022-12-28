@@ -1,0 +1,78 @@
+{
+  "name": "vite-helper",
+  "version": "1.1.3",
+  "bin": "dist/script.js",
+  "license": "MIT",
+  "homepage": "https://github.com/vite-helper/vite-helper",
+  "bugs": "https://github.com/vite-helper/vite-helper/issues",
+  "contributors": [
+    {
+      "name": "Lucas Estevam",
+      "url": "https://github.com/tl-lucasestevam"
+    },
+    {
+      "name": "Wesley Araújo",
+      "url": "https://github.com/wesleyara"
+    },
+    {
+      "name": "Augusto César",
+      "url": "https://github.com/AugustoTI"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vite-helper/vite-helper.git"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "lint": "prettier --check .",
+    "lint:format": "prettier --write .",
+    "eslint": "eslint --ext js,ts .",
+    "build": "tsc --declaration",
+    "dev": "ts-node --files src/index.ts",
+    "clean": "rm -r my-project"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/inquirer": "^9.0.2",
+    "@types/shelljs": "^0.8.11",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import-helpers": "^1.2.1",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.1.3",
+    "chalk": "^5.1.2",
+    "dotenv": "^16.0.3",
+    "fuzzy": "^0.1.3",
+    "inquirer": "^9.1.3",
+    "inquirer-tree-prompt": "^1.1.2",
+    "shelljs": "^0.8.5"
+  }
+}
